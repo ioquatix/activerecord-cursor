@@ -1,12 +1,14 @@
 
+require "active_record/cursor"
 
-
-RSpec.describe Activerecord::Cursor do
-  it "has a version number" do
-    expect(Activerecord::Cursor::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+RSpec.describe ActiveRecord::Cursor do
+	it "should have some records" do
+		expect(Comment.count).to be > 0
+	end
+	
+	it "should enumerate records" do
+		Comment.find_each do |record|
+			puts record.inspect
+		end
+	end
 end

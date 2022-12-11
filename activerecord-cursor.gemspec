@@ -3,7 +3,7 @@ require_relative 'lib/active_record/cursor/version'
 
 Gem::Specification.new do |spec|
 	spec.name          = "activerecord-cursor"
-	spec.version       = Activerecord::Cursor::VERSION
+	spec.version       = ActiveRecord::Cursor::VERSION
 	spec.authors       = ["Samuel Williams"]
 	spec.email         = ["samuel.williams@oriontransfer.co.nz"]
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
 
 	spec.add_dependency "activerecord", "~> 5.0"
 
-	spec.add_development_dependency "bundler", "~> 1.14"
+	spec.add_development_dependency "bundler", "~> 1.13"
 	spec.add_development_dependency "rake", "~> 10.0"
 	spec.add_development_dependency "rspec", "~> 3.0"
 end

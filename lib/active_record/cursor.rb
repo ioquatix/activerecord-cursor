@@ -18,13 +18,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-require "active_record/cursor/version"
+require_relative 'cursor/version'
+require_relative 'cursor/buffered_query'
 
 module ActiveRecord
-	class Base
+	class Relation
 		# normal find_each does not use given order but uses id asc
-		def self.find_each(**options, &block)
-			Cursor::BufferedQuery.new(self.to_sql, **options).each(&block)
+		def find_each(**options, &block)
+			Cursor::BufferedQuery.new(arel.to_sql, **options).each(&block)
 		end
 	end
 end

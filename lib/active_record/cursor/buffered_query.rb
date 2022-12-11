@@ -37,7 +37,7 @@ module ActiveRecord
 				
 				return @count
 			ensure
-				@connection.execute("CLOSE cursor_#{uuid}")
+				@connection.execute("CLOSE cursor_#{uuid}") rescue nil
 			end
 		end
 	end
